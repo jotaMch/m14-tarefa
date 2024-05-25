@@ -1,6 +1,5 @@
 import * as React from "react"
 
-// styles
 const pageStyles = {
   color: "#232129",
   padding: "96px",
@@ -15,6 +14,7 @@ const headingStyles = {
 const paragraphStyles = {
   marginBottom: 48,
 }
+
 const codeStyles = {
   color: "#8A6534",
   padding: 4,
@@ -39,7 +39,7 @@ const NotFoundPage = () => {
         {process.env.NODE_ENV === "development" ? (
           <>
             <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
+              Try creating a page in <code style={codeStyles}>src/pages/</code>.
             <br />
           </>
         ) : null}
