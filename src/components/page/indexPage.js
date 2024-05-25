@@ -31,8 +31,13 @@ const IndexPage = () => {
           />
         </div>
       )}
-      <div className="pokemon-container">
-        <p>ffffffffffffffffffff</p>
+
+      <div className="pokemon-container"
+      style={{display: "flex", flexDirection: "column"}}>
+        <p>Usar o useState para receber a lista e usar o pokemonList</p>
+        <h1>OU</h1>
+        <p>Usar o 404.js para comunicar o erro ao tentar adicionar um novo Pokemon</p>
+        <h1>?</h1>
         {pokemonList.map(({ _id, name, imageUrl, evolution }) => (
           <PokemonCard
             key={_id}
