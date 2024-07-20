@@ -4,6 +4,8 @@ const pageStyles = {
   color: "#232129",
   padding: "96px",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  width: '99%',
+  backgroundColor: 'red',
 }
 const headingStyles = {
   marginTop: 0,

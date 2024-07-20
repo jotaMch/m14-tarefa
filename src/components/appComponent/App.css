@@ -85,11 +85,33 @@ button:hover {
 }
 
 .pokemon-card {
-  width: 250px;
+  width: 88%;
   min-height: 325px;
   border-radius: 20px;
   box-shadow: 4px 4px 12px #388659;
   padding: 12px;
+}
+
+.center{
+  margin: 0 auto;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  display: flex;
+  flex-direction: column;
+  margin: 6px auto;
+  width: 80%;
+}
+
+label input{
+  height: 42px;
+  border-radius: 8px;
+  border: 1px solid #222;
 }
 
 .pokemon-card img {

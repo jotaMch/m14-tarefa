@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import Erro from "../../error/404"
+import { Button } from '../../stories/Button'
 
 export const PokemonCard = ({
   id,
@@ -11,7 +13,7 @@ export const PokemonCard = ({
   updateList,
   setUpdateList
 }) => {
-  const [editPokemon, setEditPokemon] = useState(createPokemon ?? false)
+  const [editPokemon, setEditPokemon] = useState(true)
   const [nameInput, setNameInput] = useState(name ?? '')
   const [imageUrlInput, setImageUrlInput] = useState(image ?? '')
   const [evolutionInput, setEvolutionInput] = useState(
@@ -19,7 +21,12 @@ export const PokemonCard = ({
   )
 
   const handleChangePokemon = () => {
-    if (createPokemon) {
+    console.log(editPokemon)
+    setEditPokemon(false)
+
+    // Comentando o code solicitado que faz solicitação a API local
+
+    /* if (createPokemon) {
       axios.post('http://localhost:4000/new-pokemon', {
         name: nameInput,
         imageUrl: imageUrlInput,
@@ -34,7 +41,7 @@ export const PokemonCard = ({
       })
       setEditPokemon(false)
     }
-    setUpdateList(updateList + 1)
+    setUpdateList(updateList + 1) */
   }
 
   const handleDeletePokemon = () => {
@@ -45,7 +52,7 @@ export const PokemonCard = ({
   return (
     <div className="pokemon-card">
       {editPokemon ? (
-        <div>
+        <form>
           <label>
             Nome:
             <input
@@ -70,24 +77,37 @@ export const PokemonCard = ({
               value={evolutionInput}
             />
           </label>
-          <button
+          <div className='center'>
+            <Button 
+            secondary size="small" 
+            label="Cancela"
             onClick={() =>
               createPokemon ? setCreatePokemon(false) : setEditPokemon(false)
             }
-          >
-            Cancela
-          </button>
-          <button onClick={handleChangePokemon}>Confirma</button>
-        </div>
-      ) : (
-        <>
+            />
+            <Button 
+            primary size="small" 
+            label="Confirma"
+            onClick={handleChangePokemon}
+            />
+          </div>
+        </form>
+      ) : 
+      <Erro/>
+
+      // Comentando esse retorno negativo do estado editPokemon
+      // Motivo: As proximas funções requerem uma API, de acordo com o
+      // codigo disponibilizado, senddo assim retornarei o erro em 
+      // components/error
+
+        /*  <>
           <h2>{name}</h2>
           <img src={image} alt={name} />
           <h3>Estágio de evolução: {evolution}</h3>
           <button onClick={() => setEditPokemon(true)}>Alterar</button>
           <button onClick={handleDeletePokemon}>Remover</button>
-        </>
-      )}
+        </> */
+      }
     </div>
   )
 }
