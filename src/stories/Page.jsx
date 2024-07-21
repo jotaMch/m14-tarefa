@@ -1,57 +1,59 @@
 import React from 'react';
-
 import { Header } from './Header';
 import './page.css';
 
-export const Page = () => {
-  const [user, setUser] = React.useState();
+/**
+ * Componente de exemplo para representar páginas no Storybook.
+ */
+export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => {
+  const [currentUser, setUser] = React.useState(user);
 
   return (
     <article>
       <Header
-        user={user}
+        user={currentUser}
         onLogin={() => setUser({ name: 'Jane Doe' })}
         onLogout={() => setUser(undefined)}
         onCreateAccount={() => setUser({ name: 'Jane Doe' })}
       />
 
       <section className="storybook-page">
-        <h2>Pages in Storybook</h2>
+        <h2>Páginas no Storybook</h2>
         <p>
-          We recommend building UIs with a{' '}
+          Recomendamos construir interfaces com um processo orientado a{' '}
           <a href="https://componentdriven.org" target="_blank" rel="noopener noreferrer">
-            <strong>component-driven</strong>
+            <strong>componentes</strong>
           </a>{' '}
-          process starting with atomic components and ending with pages.
+          começando com componentes atômicos e terminando com páginas completas.
         </p>
         <p>
-          Render pages with mock data. This makes it easy to build and review page states without
-          needing to navigate to them in your app. Here are some handy patterns for managing page
-          data in Storybook:
+          Renderize páginas com dados fictícios. Isso facilita a construção e revisão de estados de
+          página sem precisar navegar até elas em seu aplicativo. Aqui estão alguns padrões úteis
+          para gerenciar dados de página no Storybook:
         </p>
         <ul>
           <li>
-            Use a higher-level connected component. Storybook helps you compose such data from the
-            "args" of child component stories
+            Use um componente conectado em um nível mais alto. O Storybook ajuda a compor esses
+            dados a partir dos "args" dos stories dos componentes filhos.
           </li>
           <li>
-            Assemble data in the page component from your services. You can mock these services out
-            using Storybook.
+            Monte dados no componente de página a partir dos seus serviços. Você pode simular esses
+            serviços no Storybook.
           </li>
         </ul>
         <p>
-          Get a guided tutorial on component-driven development at{' '}
+          Obtenha um tutorial guiado sobre desenvolvimento orientado a componentes em{' '}
           <a href="https://storybook.js.org/tutorials/" target="_blank" rel="noopener noreferrer">
-            Storybook tutorials
+            Tutoriais do Storybook
           </a>
-          . Read more in the{' '}
+          . Leia mais na{' '}
           <a href="https://storybook.js.org/docs" target="_blank" rel="noopener noreferrer">
-            docs
+            documentação
           </a>
           .
         </p>
         <div className="tip-wrapper">
-          <span className="tip">Tip</span> Adjust the width of the canvas with the{' '}
+          <span className="tip">Dica</span> Ajuste a largura do canvas com o{' '}
           <svg width="10" height="10" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
             <g fill="none" fillRule="evenodd">
               <path
@@ -61,7 +63,7 @@ export const Page = () => {
               />
             </g>
           </svg>
-          Viewports addon in the toolbar
+          Addon de Viewports na barra de ferramentas
         </div>
       </section>
     </article>
